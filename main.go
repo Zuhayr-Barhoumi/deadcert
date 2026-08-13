@@ -10,8 +10,9 @@ import (
 	"time"
 )
 
-// version is the single place to update for releases.
-const version = "0.1.0"
+// version is set at build time via -X main.version={{.Version}} in GoReleaser.
+// It must be a var (not a const) for the linker to overwrite it.
+var version = "0.1.0"
 
 func main() {
 	os.Exit(run(os.Args[1:]))
